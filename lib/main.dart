@@ -5,6 +5,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  int counter = 0;
+  
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
