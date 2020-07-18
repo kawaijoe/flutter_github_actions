@@ -51,3 +51,6 @@ jobs:
     
     container:
       image:  google/dart:latest
+    
+    steps:
+    - uses: actions/checkout@v2
