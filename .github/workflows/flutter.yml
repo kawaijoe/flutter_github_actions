@@ -22,14 +22,14 @@ jobs:
 
     - name: Install dependencies
       run: flutter pub get
+      
+    - name: Run tests
+      run: flutter test
 
     - name: Analyze code
       uses: axel-op/dart-package-analyzer@v2
       with:
         githubToken: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Run tests
-      run: flutter test
 
 
   android:
