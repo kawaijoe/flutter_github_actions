@@ -1,10 +1,13 @@
 name: Flutter CI
 
+
 on:
   push:
     branches: [ master, staging, stable, fix/**, feature/** ]
+
   pull_request:
     branches: [ master ]
+
 
 jobs:
   test:
@@ -14,12 +17,21 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
     - uses: subosito/flutter-action@v1.3.2
+
     - name: Install dependencies
       run: flutter pub get
+
+    - name: Analyze code
+      uses: axel-op/dart-package-analyzer@v2
+      with:
+        githubToken: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Run tests
       run: flutter test
-  
+
+
   android:
     name: Android build
     needs: test
@@ -28,15 +40,20 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
     - uses: actions/setup-java@v1
       with:
         java-version: '14.x'
+
     - uses: subosito/flutter-action@v1.3.2
+
     - name: Install dependencies
       run: flutter pub get
+
     - name: Build app bundle
       run: flutter build appbundle
-  
+
+
   ios:
     name: iOS Build
     needs: test
@@ -45,8 +62,11 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
+
     - uses: subosito/flutter-action@v1.3.2
+
     - name: Install dependencies
       run: flutter pub get
+
     - name: Build iOS application
       run: flutter build ios --no-codesign
