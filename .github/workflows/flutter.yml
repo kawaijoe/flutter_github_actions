@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Configure build auto cancellation
+    - name: Configure auto cancellation
       uses: styfle/cancel-workflow-action@0.4.1
       with:
         access_token: ${{ github.token }}
@@ -43,7 +43,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Configure build auto cancellation
+    - name: Configure auto cancellation
       uses: styfle/cancel-workflow-action@0.4.1
       with:
         access_token: ${{ github.token }}
@@ -71,7 +71,7 @@ jobs:
     runs-on: macos-latest
     
     steps:
-    - name: Configure build auto cancellation
+    - name: Configure auto cancellation
       uses: styfle/cancel-workflow-action@0.4.1
       with:
         access_token: ${{ github.token }}
